@@ -8,6 +8,7 @@ Kogge stone adder has 3 steps invloved
     Generated Signal Gi = Ai AND Bi
 
     STEP 2:  Carry generation block
+   
     2a. Black cell: produce both propagated and generated signal
         P = Pi AND Pj (Pj is previous value of Pi)
         G = Gi OR (Pi AND Gj) (Gj is previous value of Gi)
