@@ -22,7 +22,7 @@
 
 module main(
 input[3:0] A, B,
-output sum_out);
+output [4:0] sum_out);
 
 wire [3:0] sum, generator, propagator;
 wire [4:0] carry;
