@@ -1,5 +1,26 @@
 `timescale 1ns / 1ps
-module carrylookahead(
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 16.12.2023 22:49:42
+// Design Name: 
+// Module Name: main
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module main(
 input[3:0] A, B,
 output sum_out);
 
@@ -22,21 +43,24 @@ xor x3(propagator[2], A[2], B[2]);
 xor x4(propagator[3], A[3], B[3]);
 
 wire w0, w1, w2, w3;
-assign carry[0] = 1;b0;
+assign carry[0] = 1'b0;
 
 and an1(w0, propagator[0], carry[0]);
-or o1(carry[1], generator[0], w[0]);
+or o1(carry[1], generator[0], w0);
 
 and an2(w1, propagator[1], carry[1]);
-or o2(carry[2], generator[1], w[1]);
+or o2(carry[2], generator[1], w1);
 
 and an3(w2, propagator[2], carry[2]);
-or o1(carry[3], generator[2], w[2]);
+or o3(carry[3], generator[2], w2);
 
 and an4(w3, propagator[3], carry[3]);
-or o1(carry[4], generator[3], w[3]);
+or o4(carry[4], generator[3], w3);
 
-assign sum_output = {carry[4],sum};
+assign sum_out = {carry[4],sum};
+
+endmodule
+
 
 module full_adder(
 input a, b,cin,
@@ -44,3 +68,4 @@ output sum, cout);
 assign sum = a^b^cin;
 assign carry = (a&b)|(b&cin)|(cin&a);
 endmodule
+
