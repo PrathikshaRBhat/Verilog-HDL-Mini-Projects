@@ -15,7 +15,7 @@ parameter S5 = 3'b101;
 parameter S6 = 3'b110;
 parameter S7 = 3'b111;
 
-always@(rst or posedge clk)
+always@(posedge clk)
 begin
 if(rst == 1)
 cstate <= S0;
